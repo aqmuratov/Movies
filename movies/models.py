@@ -23,7 +23,7 @@ class Movies(models.Model):
     trailer = models.URLField(verbose_name='Ссылка для трейлера',blank=True,null=True)
 
     class Meta:
-        verbose_name = 'Фильмw'
+        verbose_name = 'Фильмы'
         verbose_name_plural = 'Фильмы'
 
     def __str__(self) -> str:
