@@ -32,3 +32,4 @@ class Movies(models.Model):
         return reverse('movies:movie',args=[self.id,self.slug])
 
 
+
