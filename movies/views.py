@@ -1,4 +1,7 @@
 from django.shortcuts import render,get_list_or_404,redirect
+from django.contrib.auth import login,authenticate,logout
+from . import forms
+from django.contrib.auth.forms import AuthenticationForm
 
 from . import models
 
@@ -14,3 +17,14 @@ def movie_list(request,category_slug=None):
         'categories':categories,
         'movies':movies,
     })
+def registration(reqeust):
+    if reqeust.method =='POST':
+        form = forms.SingUpForm(reqeust.POST)
+        if form.is_valid():
+            user = form.save()
+            login(reqeust,user)
+            return redirect('homepage')
+    else:
+        form = forms.SingUpForm()
+    return render(reqeust,'registration.html',{'form':form})
+    

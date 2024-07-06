@@ -30,6 +30,5 @@ class Movies(models.Model):
         return self.name 
     def get_absolute_url(self):
         return reverse('movies:movie',args=[self.id,self.slug])
-
-
+    
 
