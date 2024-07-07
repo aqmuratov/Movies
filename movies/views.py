@@ -27,4 +27,18 @@ def registration(reqeust):
     else:
         form = forms.SingUpForm()
     return render(reqeust,'registration.html',{'form':form})
+
+def log_in(request):
+    if request.method =='POST':
+        form = forms.AuthenticationForm(request,data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request,user)
+            return redirect('homepage')
+    else:
+        form = forms.AuthenticationForm()
+    return render(request,'login.html',{'form':form})
+
+
+
     

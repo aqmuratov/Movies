@@ -1,6 +1,17 @@
-<h2>Log In</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form }}
-  <button type="submit">Log In</button>
-</form>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    
+    <form action="" method="post">
+        {% csrf_token%}
+        {{ form.as_p }}
+        <button type="submit" class="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg" style="margin-top: 10px;">Submit</button>
+    </form>
+    
+    
+        
+      
+    
+
+{% endblock %}
