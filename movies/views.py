@@ -2,7 +2,7 @@ from django.shortcuts import render,get_list_or_404,redirect
 from django.contrib.auth import login,authenticate,logout
 from . import forms
 from django.contrib.auth.forms import AuthenticationForm
-
+from django.contrib.auth.views import LoginView
 from . import models
 
 # Create your views here.
@@ -40,5 +40,6 @@ def log_in(request):
     return render(request,'login.html',{'form':form})
 
 
-
-    
+class SingInClass(LoginView):
+    authentication_form = forms.SignInForm
+    template_name='registration.html'
