@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_list_or_404,redirect
+from django.shortcuts import render,get_list_or_404,redirect,get_object_or_404
 from django.contrib.auth import login,authenticate,logout
 from . import forms
 from django.contrib.auth.forms import AuthenticationForm
@@ -30,16 +30,24 @@ def registration(reqeust):
 
 def log_in(request):
     if request.method =='POST':
-        form = forms.AuthenticationForm(request,data=request.POST)
+        form = forms.SignInForm(request,data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request,user)
-            return redirect('homepage')
+            return redirect('movie_list')
     else:
-        form = forms.AuthenticationForm()
+        form = forms.SignInForm()
     return render(request,'login.html',{'form':form})
 
+def movie_detail(request,id):
+    post = get_object_or_404(models.Movies,id=id)
+    return render(request,'movie_detail.html',{'post':post})
 
 class SingInClass(LoginView):
     authentication_form = forms.SignInForm
     template_name='registration.html'
+
+
+def post_detail(request,id):
+    movie = get_object_or_404(models.Movies,id=id)
+    return render(request,'movie_detail.html',{'movie':movie})

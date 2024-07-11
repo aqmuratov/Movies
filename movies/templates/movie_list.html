@@ -17,12 +17,12 @@
     <div class="container-fluid py-5" style="padding: 100px;">
         <h1 class="display-5 fw-bold">{{i.name}}</h1>
         <div style="display: flex;">
-        <img src="{{i.image.url}}" alt="{{i.name}}" style="width: 500px;">
+        </a><img src="{{i.image.url}}" alt="{{i.name}}" style="width: 500px;">
       
       <p class="col-md-8 fs-4" style="width: 500px; margin-left: 20px;">{{i.description|slice:":500"}}...</p>
     </div >
       <div style="display: flex; margin-top: 20px;">
-        <button class="btn btn-primary btn-lg text-bg-dark" type="button">Подробнее</button>
+        <a href="{detail}"><button class="btn btn-primary btn-lg text-bg-dark" type="button">Подробнее</button></a>
 <p style="margin-left: 400px"> {{i.realised_date}}</p>
         </div>
     </div>
