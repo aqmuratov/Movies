@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
 
-{{movie.category}}
-{{movie.realised_date}}
-{{movie.description}}
-{{movie.image}}
-{{movie.trailer}}
+    
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container-fluid py-5" style="padding: 100px;">
+            <div style="display: flex;">
+                
+            <img src="{{movie.image.url}}" alt="{{movie.name}}" style="width: 500px;">
+            <h2 style="margin-top: px; width: 590px; margin-left: 50px;">Год выпуска: {{movie.realised_date}}</h2>
+        
+        
+            
+
+            </div>
+            <h1 style="margin-top: px; width: 500px;">Описание фильма</h1>
+        <br>
+          <p>{{movie.description}}</p>
+        </div >
 
 
-{% endblock content %}
+{% endblock %}

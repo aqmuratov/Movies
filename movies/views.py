@@ -48,6 +48,6 @@ class SingInClass(LoginView):
     template_name='registration.html'
 
 
-def post_detail(request,id):
+def movie_detail(request,id):
     movie = get_object_or_404(models.Movies,id=id)
     return render(request,'movie_detail.html',{'movie':movie})
