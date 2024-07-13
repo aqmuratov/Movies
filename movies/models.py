@@ -36,5 +36,12 @@ class Comments(models.Model):
     text = models.TextField(max_length=600,verbose_name='Техт')
     created_date = models.DateField(verbose_name='время писание')
     movie = models.ForeignKey(Movies,verbose_name='Фильм',on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+
+    def __str__(self):
+        return f'Комментарий от {self.author} к {self.movie}'
     
 
