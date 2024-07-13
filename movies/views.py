@@ -69,5 +69,3 @@ def movie_detail(request,id):
 
 
 
-
-

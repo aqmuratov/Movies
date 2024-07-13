@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
-{% block content %}
-
-    
-   
-        <div class="container-fluid py-5">
+{% block content %} 
+      <div class="p-5 mb-4  rounded-3">
+        <div class="container-fluid py-5" style="background-color: rgba(253, 224, 3, 0.636);">
+          <h3>Name Film: {{movie.name}}</h3>
             <div style="display: flex;">
-                
-            <img src="{{movie.image.url}}" alt="{{movie.name}}" style="width: 500px;">
-            <h2 style="margin-top: px; width: 590px; margin-left: 50px;">Год выпуска: {{movie.realised_date}}</h2>
-
+              <img src="{{movie.image.url}}" alt="{{movie.name}}" style="width: 400px; height: 500px;">
+              <h2 style="margin-top: px; width: 590px; margin-left: 30px;">Год выпуска: {{movie.realised_date}}</h2>
             </div>
-            <h1 style="margin-top: px; width: 500px;">Описание фильма</h1>
+            <h2>Описание Фильма</h2>
+            <p class="col-md-8 fs-4">{{movie.description}}</p>
         <br>
-          <p>{{movie.description}}</p>
           {% for comment in comments %}
             {{comment.text}}
             {{comment.created_at}}
@@ -22,7 +19,6 @@
             {{ comment_form.as_p }}
             <input type="submit" value="Добавить коммент" id="">
           </form>
-        </div >
-
-
+        </div>
+      </div >
 {% endblock %}
