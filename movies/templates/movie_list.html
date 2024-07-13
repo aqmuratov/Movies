@@ -2,19 +2,12 @@
 
 
 {% block content %}
-<div style="width: 400px; margin-left: 600px;">
-  <select class="form-select" aria-label="Default select example">
-    <option selected>All</option>
-    <option value="1">Drama</option>
-    <option value="2">Horror</option>
-    <option value="3">Melodrama</option>
-  </select>
-  </div>
+
 
 {% for i in movies %}
 
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-    <div class="container-fluid py-5" style="padding: 100px;">
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3" style="background-color: black;">
+    <div class="container-fluid py-5" style="padding: 100px; background-color: rgb(227, 201, 51);">
         <h1 class="display-5 fw-bold">{{i.name}}</h1>
         <div style="display: flex;">
         </a><img src="{{i.image.url}}" alt="{{i.name}}" style="width: 500px;">
@@ -22,7 +15,10 @@
       <p class="col-md-8 fs-4" style="width: 500px; margin-left: 20px;">{{i.description|slice:":500"}}...</p>
     </div >
       <div style="display: flex; margin-top: 20px;">
+        <a href="{% url 'detail' i.id %}">
         <button class="btn btn-primary btn-lg text-bg-dark" type="button">Подробнее</button>
+        </a>
+
 <p style="margin-left: 400px"> {{i.realised_date}}</p>
         </div>
     </div>

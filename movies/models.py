@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 class Category(models.Model):
     name = models.CharField(max_length=255)
     slug  = models.SlugField(max_length=100, unique=True)
@@ -30,5 +30,11 @@ class Movies(models.Model):
         return self.name 
     def get_absolute_url(self):
         return reverse('movies:movie',args=[self.id,self.slug])
+    
+class Comments(models.Model):
+    author = models.ForeignKey(User,max_length=300,on_delete=models.CASCADE)
+    text = models.TextField(max_length=600,verbose_name='Техт')
+    created_date = models.DateField(verbose_name='время писание')
+    movie = models.ForeignKey(Movies,verbose_name='Фильм',on_delete=models.CASCADE)
     
 
