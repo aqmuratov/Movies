@@ -68,4 +68,5 @@ def movie_detail(request,id):
         })
 
 
-
+def about(request):
+    return render(request, 'about.html')
