@@ -12,6 +12,7 @@ def movie_list(request,category_slug=None):
     movies = models.Movies.objects.all()
     if category_slug:
         category = get_list_or_404(models.Category,slug=category_slug)
+        movies=movies.filter(category=category)
     return render(request,'movie_list.html',{
         'category':category,
         'categories':categories,
@@ -50,7 +51,7 @@ class SingInClass(LoginView):
 
 def movie_detail(request,id):
     movie = get_object_or_404(models.Movies,id=id)
-    comments = models.Comments.objects.all()
+    comments = models.Comments.objects.filter()
     if request.method == 'POST':
         comment_form = forms.CommentForm(request.POST)
         if comment_form.is_valid():
@@ -70,3 +71,6 @@ def movie_detail(request,id):
 
 def about(request):
     return render(request, 'about.html')
+
+def category(request):
+    return render(request, 'category.html')
