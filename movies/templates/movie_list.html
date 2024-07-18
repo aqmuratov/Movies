@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 {% for i in movies %}
-  <div class="p-5 mb-4 rounded-3">
-    <div class="container-fluid py-5" style="padding: 100px; background-color: rgba(253, 224, 3, 0.636);">
-        <h1 class="display-5 fw-bold">{{i.name}}</h1>
-        <div style="display: flex;">
-        </a><img src="{{i.image.url}}" alt="{{i.name}}" style="width: 300px; height: 450px;">
+  <div class="p-5 mb-4 rounded-3" >
+    <div class="container-fluid py-5" style="padding: 100px; background-color: rgba(138, 142, 134, 0.352);">
+        <h1 class="display-5 fw-bold" style="text-decoration-color: aliceblue;">{{i.name}}</h1>
+        <div style="display: flex; background-color: rgba(251, 251, 251, 0.547);">
+        </a><img src="{{i.image.url}}" alt="{{i.name}}" style="width: 410px; height: 500px;">
       <p class="col-md-8 fs-4" style="width: 500px; margin-left: 20px;">{{i.description|slice:":500"}}...</p>
     </div >
       <div style="display: flex; margin-top: 20px;">
