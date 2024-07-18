@@ -24,7 +24,7 @@ def registration(reqeust):
         if form.is_valid():
             user = form.save()
             login(reqeust,user)
-            return redirect('homepage')
+            return redirect('movie_list')
     else:
         form = forms.SingUpForm()
     return render(reqeust,'registration.html',{'form':form})
@@ -43,6 +43,10 @@ def log_in(request):
 def movie_detail(request,id):
     post = get_object_or_404(models.Movies,id=id)
     return render(request,'movie_detail.html',{'post':post})
+
+def log_out(request):
+    logout(request)
+    return redirect('movie_list')
 
 class SingInClass(LoginView):
     authentication_form = forms.SignInForm

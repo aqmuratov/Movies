@@ -33,6 +33,18 @@
             <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
               <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
             </form>
+
+            {% if  user.is_authenticated %}
+            <p>
+              User: {{ user.username }}
+            </p>
+            <a href="{% url 'logout' %}">
+                <button   class="btn btn-outline-light me-2">
+                  logout 
+                </button>
+              
+            </a>
+            {% else %}
     
             <div class="text-end">
               <a href="{% url 'login' %}">
@@ -41,6 +53,7 @@
               <a href="{% url 'registration' %}">
               <button type="button" class="btn btn-warning">Sign-up</button>
               </a>
+              {% endif %}
 
             </div>
           </div>
